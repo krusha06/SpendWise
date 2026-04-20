@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useExpenseStore } from '../store/expenseStore'
 import { ExpenseForm } from './ExpenseForm'
-import type { Expense, ExpenseCategory } from '../types'
+import type { Expense } from '../types'
 
 const CATEGORY_COLORS: Record<string, string> = {
   Food: 'bg-orange-100 text-orange-700',

@@ -23,7 +23,13 @@ export const MonthlyTrend = () => {
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="month" tick={{ fontSize: 12 }} />
         <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `₹${v}`} />
-        <Tooltip formatter={(val: number) => formatCurrency(val)} />
+        <Tooltip formatter={(val) => {
+            if (typeof val === "number") {
+              return formatCurrency(val);
+            }
+            return val ?? "";
+          }}
+        />
         <Bar dataKey="total" fill="#6366f1" radius={[6, 6, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>

@@ -33,7 +33,13 @@ export const SpendingByCategory = () => {
             <Cell key={i} fill={COLORS[i % COLORS.length]} />
           ))}
         </Pie>
-        <Tooltip formatter={(val: number) => formatCurrency(val)} />
+        <Tooltip formatter={(val) => {
+            if (typeof val === "number") {
+              return formatCurrency(val);
+            }
+            return val ?? "";
+          }}
+        />
         <Legend />
       </PieChart>
     </ResponsiveContainer>
